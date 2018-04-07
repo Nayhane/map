@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Map, TileLayer, Popup, Marker } from 'react-leaflet'
+import { connect } from 'react-redux'
 import L from 'leaflet'
 
 
@@ -51,7 +52,7 @@ class MapContainer extends PureComponent {
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
 
-          <Marker icon={myIcon}  position={position}>
+          <Marker icon={myIcon}  position={position} marker={this.props.markers}>
             <Popup minWidth={90}>
               <div>
                  Undagrid
@@ -64,6 +65,6 @@ class MapContainer extends PureComponent {
   }
 }
 
+const mapStateToProps = ({ markers }) => ({ markers })
 
-
-export default MapContainer
+export default connect(mapStateToProps)(MapContainer)

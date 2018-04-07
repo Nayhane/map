@@ -3,10 +3,15 @@ import MapContainer from './containers/MapContainer'
 import './App.css';
 
 class App extends Component {
+
+ updateMarkers(position, update){
+
+ }
+
   render() {
     return (
       <div className="App">
-        <MapContainer {...this.props} />
+        <MapContainer updateMarkers={this.updateMarkers.bind(this)} />
       </div>
     );
   }
