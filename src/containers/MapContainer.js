@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react'
 import { Map, TileLayer, Popup, Marker } from 'react-leaflet'
 import { connect } from 'react-redux'
+import MarkerContainer from './MarkerContainer'
 import L from 'leaflet'
-
-
 import 'leaflet/dist/leaflet.css'
 
 
@@ -35,9 +34,9 @@ class MapContainer extends PureComponent {
 
   render(){
    const position = [this.state.lat, this.state.lng]
-   const myIcon = L.icon({
-       iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-icon.png"
-    })
+   // const myIcon = L.icon({
+   //     iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-icon.png"
+   //  })
 
     return(
       <div>
@@ -52,13 +51,7 @@ class MapContainer extends PureComponent {
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
 
-          <Marker icon={myIcon}  position={position} marker={this.props.markers}>
-            <Popup minWidth={90}>
-              <div>
-                 Undagrid
-              </div>
-             </Popup>
-          </Marker>
+          <MarkerContainer />
         </Map>
       </div>
     )
