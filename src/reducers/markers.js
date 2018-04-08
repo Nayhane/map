@@ -1,6 +1,6 @@
 import { CREATE_MARKER } from '../actions/create'
 
-const markers =  [
+const markers = [
   {
     title: "Apple",
     pointIcon: "https://png.pngtree.com/element_origin_min_pic/00/16/05/08572ef0dc19104.jpg",
@@ -18,7 +18,7 @@ const markers =  [
 export default (state = markers, { type, payload } = {}) => {
   switch(type) {
     case CREATE_MARKER :
-    const newMarker = {... payload}
+    const newMarker = {...payload}
       return [newMarker].concat(state)
 
     default :
