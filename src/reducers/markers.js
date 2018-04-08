@@ -18,7 +18,8 @@ const markers =  [
 export default (state = markers, { type, payload } = {}) => {
   switch(type) {
     case CREATE_MARKER :
-      return [Object.assign({}, payload)].concat(state)
+    const newMarker = {... payload}
+      return [newMarker].concat(state)
 
     default :
       return state
