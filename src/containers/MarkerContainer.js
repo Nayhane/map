@@ -1,44 +1,41 @@
 import React, { PureComponent } from 'react'
 import { Marker, Popup} from 'react-leaflet'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import MarkerItem from './MarkerItem'
 import L from 'leaflet'
 
 
 
 class MarkerContainer extends PureComponent{
- constructor(props){
-   super()
-
-   this.state = {
-       markers: []
-    }
- }
+  constructor(props){
+    super()
+  }
 
 
-renderMarker(marker, index) {
+  renderMarker(marker, index) {
+      return <MarkerItem key={index} {...marker} />
+  }
+
+  render(){
     const myIcon = L.icon({
         iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-icon.png"
      })
 
-      return (
-        <Marker icon={myIcon} key={index} >
-          <Popup>
-             <h2>{marker.title}</h2>
-             <p>{marker.pointIcon}</p>
-           </Popup>
-        </Marker>
-      )
-  }
 
-  render(){
+
     return(
       <div>
-            {this.state.markers.map(this.renderMarker)}
+          {this.props.markers.map(this.renderMarker)}
       </div>
     )
   }
 }
 
+const mapStateToProps = ({ markers }) => ({
+  markers
+})
 
 
-export default MarkerContainer
+
+export default connect(mapStateToProps)(MarkerContainer)
