@@ -1,11 +1,9 @@
 import React, { PureComponent } from 'react'
 import { Map, TileLayer, Popup, Marker } from 'react-leaflet'
 import { connect } from 'react-redux'
+import MarkerContainer from './MarkerContainer'
 import L from 'leaflet'
-
-
 import 'leaflet/dist/leaflet.css'
-
 
 
 const styleMap = {
@@ -29,21 +27,19 @@ class MapContainer extends PureComponent {
     this.state = {
       lat: 52.293546,
       lng: 4.739897,
-      zoom: 13,
     }
   }
 
+
   render(){
    const position = [this.state.lat, this.state.lng]
-   const myIcon = L.icon({
-       iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-icon.png"
-    })
+
 
     return(
       <div>
         <Map
           center={position}
-          zoom={this.state.zoom}
+          zoom={13}
           style={styleMap}
         >
 
@@ -52,19 +48,15 @@ class MapContainer extends PureComponent {
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
 
-          <Marker icon={myIcon}  position={position} marker={this.props.markers}>
-            <Popup minWidth={90}>
-              <div>
-                 Undagrid
-              </div>
-             </Popup>
-          </Marker>
+          <MarkerContainer />
         </Map>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ markers }) => ({ markers })
+const mapStateToProps = ({ markers }) => ({
+  markers
+})
 
 export default connect(mapStateToProps)(MapContainer)

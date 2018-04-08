@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import MapContainer from './containers/MapContainer'
 import './App.css';
 
-class App extends Component {
 
- updateMarkers(position, update){
-
- }
+class App extends PureComponent {
 
   render() {
     return (
       <div className="App">
-        <MapContainer updateMarkers={this.updateMarkers.bind(this)} />
+        <MapContainer {...this.props}/>
       </div>
     );
   }
