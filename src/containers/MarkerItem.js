@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Map, TileLayer, Popup, Marker } from 'react-leaflet'
+import { Popup, Marker } from 'react-leaflet'
 import PropTypes from 'prop-types'
 import L from 'leaflet'
 
@@ -17,7 +17,7 @@ class MarkerItem extends PureComponent{
 
   render(){
     const { title, pointIcon } = this.props
-    const position = [this.props.lat, this.props.lng]
+    const position = this.props
     const myIcon = L.icon({
         iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-icon.png"
      })
@@ -25,8 +25,8 @@ class MarkerItem extends PureComponent{
     return(
       <Marker icon={myIcon} position={position}>
         <Popup minWidth={90}>
-         <h3>{ title }</h3>
-         <img>{ pointIcon } </img>
+           <h3>{ title }</h3>
+           <img alt="icon">{ pointIcon } </img>
         </Popup>
       </Marker>
     )
