@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Map, TileLayer } from 'react-leaflet'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import MarkerContainer from './MarkerContainer'
 import 'leaflet/dist/leaflet.css'
 
@@ -18,23 +18,23 @@ const styleMap = {
 
 class MapContainer extends PureComponent {
   constructor(props) {
-    super(props)
+    super()
 
     this.state = {
-      lat: 52.29354,
-      lng: 4.739897,
+      lat: 52.29354, lng: 4.739897
     }
   }
 
 
+
   render(){
-   const position = [this.state.lat, this.state.lng]
+   const mapPosition = [this.state.lat, this.state.lng]
 
     return(
       <div>
         <Map
-          center={position}
-          zoom={13}
+          center={mapPosition}
+          zoom={3}
           style={styleMap}
         >
 
@@ -49,9 +49,9 @@ class MapContainer extends PureComponent {
     )
   }
 }
+//
+// const mapStateToProps = ({ markers }) => ({
+//   markers
+// })
 
-const mapStateToProps = ({ markers }) => ({
-  markers
-})
-
-export default connect(mapStateToProps)(MapContainer)
+export default MapContainer

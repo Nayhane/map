@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import MarkerItem from './MarkerItem'
-
-
+import fetchMarkers from '../actions/fetch'
 
 
 class MarkerContainer extends PureComponent{
@@ -10,8 +9,13 @@ class MarkerContainer extends PureComponent{
     super()
   }
 
+  componentWillMount() {
+      this.props.fetchMarkers()
+    }
+
 
   renderMarker(marker, index) {
+    console.log(marker)
       return <MarkerItem key={index} {...marker} />
   }
 
@@ -30,4 +34,4 @@ const mapStateToProps = ({ markers }) => ({
 
 
 
-export default connect(mapStateToProps)(MarkerContainer)
+export default connect(mapStateToProps, {fetchMarkers})(MarkerContainer)
