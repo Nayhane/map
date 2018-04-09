@@ -8,7 +8,7 @@ class App extends PureComponent {
   render() {
     return (
       <div className="App">
-        <MapContainer {...this.props}/>
+        <MapContainer />
       </div>
     );
   }

@@ -21,7 +21,8 @@ class MapContainer extends PureComponent {
     super()
 
     this.state = {
-      lat: 52.29354, lng: 4.739897
+      lat: 52.29354,
+      lng: 4.739897
     }
   }
 
@@ -34,7 +35,7 @@ class MapContainer extends PureComponent {
       <div>
         <Map
           center={mapPosition}
-          zoom={3}
+          zoom={10}
           style={styleMap}
         >
 
