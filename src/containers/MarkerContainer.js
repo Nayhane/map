@@ -14,6 +14,7 @@ class MarkerContainer extends PureComponent{
       // this is hardcoded data, we could use an api later
       // instead of ../data/markers we could also fetch markers from localstorage
       this.props.fetchMarkers(markers)
+
     }
 
 
@@ -23,7 +24,7 @@ class MarkerContainer extends PureComponent{
 
   render(){
     const { markers } = this.props
-    
+
     return(
       <div>
           {markers.map(this.renderMarker)}
