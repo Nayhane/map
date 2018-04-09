@@ -3,7 +3,7 @@
 Project made with React-leaflet and Redux.
 Render markers with title and icon.
 
-###### Installation
+### Installation
 
 clone the repo
 
