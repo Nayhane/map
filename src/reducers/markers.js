@@ -7,9 +7,9 @@ export default (state = [], { type, payload } = {}) => {
       return [...payload]
 
 
-    // case CREATE_MARKER :
-    //   const newMarker = {...payload}
-    //   return [newMarker].concat(state)
+    case CREATE_MARKER :
+      const newMarker = {...payload}
+      return [newMarker].concat(state)
 
     default :
       return state
