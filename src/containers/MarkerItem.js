@@ -8,26 +8,25 @@ class MarkerItem extends PureComponent{
  static propTypes = {
   title: PropTypes.string.isRequired,
   pointIcon: PropTypes.string,
-  position: PropTypes.shape({
-    lat: PropTypes.string,
-    lng: PropTypes.string,
+  latLng: PropTypes.shape({
+    lat: PropTypes.number,
+    lng: PropTypes.number,
   })
  }
 
 
   render(){
-    const { title, pointIcon } = this.props
-    const position = this.props
+    const { title, pointIcon, latLng } = this.props
+
     const myIcon = L.icon({
         iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-icon.png"
      })
 
     return(
-      <Marker icon={myIcon} position={position}>
-        <Popup minWidth={90}>
+      <Marker icon={myIcon} position={latLng}>
+
            <h3>{ title }</h3>
-           <img alt="icon">{ pointIcon } </img>
-        </Popup>
+          
       </Marker>
     )
   }
