@@ -36,6 +36,9 @@ class MarkerItem extends PureComponent{
             <div>
               <img style={styleIcon} alt="icon" src={pointIcon}/>
             </div>
+            <div>
+              <button type="button" className="btn btn-light">Edit</button>
+            </div>
           </div>
         </Popup>
       </Marker>
