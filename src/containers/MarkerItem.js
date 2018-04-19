@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Popup, Marker } from 'react-leaflet'
 import PropTypes from 'prop-types'
 import L from 'leaflet'
+import MarkerEditor from './MarkerEditor'
 
 
 class MarkerItem extends PureComponent{
@@ -13,7 +14,6 @@ class MarkerItem extends PureComponent{
     lng: PropTypes.number,
   })
  }
-
 
 
   render(){
@@ -37,7 +37,7 @@ class MarkerItem extends PureComponent{
               <img style={styleIcon} alt="icon" src={pointIcon}/>
             </div>
             <div>
-              <button type="button" className="btn btn-light">Edit</button>
+              <MarkerEditor />
             </div>
           </div>
         </Popup>
