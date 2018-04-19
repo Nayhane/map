@@ -33,10 +33,7 @@ class MarkerContainer extends PureComponent{
   }
 }
 
-const mapStateToProps = ({ markers }) => ({
-  markers
-})
-
+const mapStateToProps = ({ markers }) => ({ markers })
 
 
 export default connect(mapStateToProps, {fetchMarkers})(MarkerContainer)

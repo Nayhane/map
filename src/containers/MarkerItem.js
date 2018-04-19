@@ -3,6 +3,7 @@ import { Popup, Marker } from 'react-leaflet'
 import PropTypes from 'prop-types'
 import L from 'leaflet'
 import MarkerEditor from './MarkerEditor'
+import store from '../store'
 
 
 class MarkerItem extends PureComponent{
@@ -37,7 +38,7 @@ class MarkerItem extends PureComponent{
               <img style={styleIcon} alt="icon" src={pointIcon}/>
             </div>
             <div>
-              <MarkerEditor />
+              <MarkerEditor {...this.props} store={store}/>
             </div>
           </div>
         </Popup>

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { Map, TileLayer } from 'react-leaflet'
 import { connect } from 'react-redux'
 import MarkerContainer from './MarkerContainer'
-import createMarkers from '../actions/create'
+import createMarker from '../actions/create'
 import 'leaflet/dist/leaflet.css'
 
 
@@ -21,7 +21,7 @@ class MapContainer extends PureComponent {
 
   addMarker = (e) => {
     const marker =   {latLng: {lat: e.latlng.lat, lng:  e.latlng.lng}}
-    this.props.createMarkers(marker)
+    this.props.createMarker(marker)
     }
 
 
@@ -49,9 +49,7 @@ class MapContainer extends PureComponent {
   }
 }
 //
-const mapStateToProps = ({ markers }) => ({
-  markers
-})
+const mapStateToProps = ({ markers }) => ({ markers })
 
 
-export default connect(mapStateToProps, {createMarkers})(MapContainer)
+export default connect(mapStateToProps, {createMarker})(MapContainer)

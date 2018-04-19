@@ -1,14 +1,15 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import saveMarker from '../actions/update'
 
 
 
-class MarkerEditor extends PureComponent{
+class MarkerEditor extends Component{
   constructor(props){
     super()
 
-   const { title, pointIcon } = props
-
-    this.state = { title, pointIcon, show: false}
+    const { title, pointIcon, latLng, id } = props
+    this.state = { title, pointIcon, latLng, id, show: false}
   }
 
 
@@ -31,21 +32,20 @@ class MarkerEditor extends PureComponent{
     })
   }
 
-  saveMarker = () => {
 
+  saveMarker = () => {
      const updateMarker = {
        ...this.state,
        title: (this.state.title),
        pointIcon: (this.state.pointIcon),
-       show: false
+       show: false,
+       id: (this.state.id)
      }
-     console.log(updateMarker)
-     // this.props.saveMarker(updateMarker)
+
+     this.props.saveMarker(updateMarker)
   }
 
   renderEditor(){
-    console.log(this.state.title)
-    console.log(this.state.pointIcon)
     return(
       <div>
         <input
@@ -85,5 +85,4 @@ class MarkerEditor extends PureComponent{
 }
 
 
-
-export default MarkerEditor
+export default connect(null, {saveMarker})(MarkerEditor)
