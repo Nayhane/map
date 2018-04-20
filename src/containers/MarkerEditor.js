@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import saveMarker from '../actions/update'
+import deleteMarker from '../actions/delete'
 
 
 
@@ -45,6 +46,11 @@ class MarkerEditor extends Component{
      this.props.saveMarker(updateMarker)
   }
 
+  removeMarker = () => {
+      this.props.deleteMarker(this.props)
+
+  }
+
   renderEditor(){
     return(
       <div>
@@ -78,11 +84,11 @@ class MarkerEditor extends Component{
        return(
          <div>
            <button type='button' className="btn btn-outline-dark"  onClick={this.toogleInput.bind(this)}>Edit</button>
+          <button type='button' className="btn btn-outline-dark"  onClick={this.removeMarker.bind(this)}>Delete</button>
          </div>
        )
      }
   }
 }
 
-
-export default connect(null, {saveMarker})(MarkerEditor)
+export default connect(null, {saveMarker, deleteMarker})(MarkerEditor)
